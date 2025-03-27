@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Energy Products - Rolsa Technologies</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #4CAF50;
+            --accent-color: #FFD700;
+            --light-color: #F5F5F5;
+            --dark-color: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, rgba(46, 139, 87, 0.9), rgba(76, 175, 80, 0.8)), url('/api/placeholder/1200/400') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 60px 0;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-heading h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-heading p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .product-info p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .product-info ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .product-info ul li {
+            margin-bottom: 5px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Comparison Table */
+        .comparison-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: var(--shadow);
+            background-color: white;
+        }
+        
+        thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            font-weight: 600;
+        }
+        
+        tbody tr:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+        
+        .feature-available {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .feature-unavailable {
+            color: #999;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 60px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: rgba(76, 175, 80, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .author-info h4 {
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            text-decoration: none;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container navbar">
+            <div class="logo">
+                <img src="/api/placeholder/40/40" alt="Rolsa Technologies Logo">
+                <h1>Rolsa Technologies</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#" class="active">Green Energy Products</a></li>
+                <li><a href="#">Carbon Footprint Calculator</a></li>
+                <li><a href="#">Booking</a></li>
+                <li><a href="#">My Account</a></li>
+            </ul>
+            <div class="hamburger">
+                <span>☰</span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Sustainable Energy Solutions</h2>
+            <p>Discover our range of green energy products designed to reduce your carbon footprint while saving you money on energy bills. From solar panels to EV charging stations and smart home systems, we have everything you need for a greener future.</p>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Green Energy Products</h2>
+                <p>Rolsa Technologies offers cutting-edge sustainable energy solutions for homes and businesses. Our products are designed with efficiency, durability, and environmental impact in mind.</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Solar Panel Systems -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                    <div class="product-info">
+                        <h3>Solar Panel Systems</h3>
+                        <p>Convert sunlight into clean, renewable electricity for your home or business with our high-efficiency solar panel systems.</p>
+                        <ul>
+                            <li>Monocrystalline and polycrystalline options</li>
+                            <li>25-year performance warranty</li>
+                            <li>Weather-resistant design</li>
+                            <li>Smart monitoring capabilities</li>
+                        </ul>
+                        <p class="product-price">Starting from $7,999</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- EV Charging Stations -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                    <div class="product-info">
+                        <h3>EV Charging Stations</h3>
+                        <p>Charge your electric vehicle efficiently and conveniently with our state-of-the-art EV charging stations for residential and commercial use.</p>
+                        <ul>
+                            <li>Level 2 and DC fast charging options</li>
+                            <li>Smart scheduling and remote control</li>
+                            <li>Weatherproof construction</li>
+                            <li>Compatible with all EV models</li>
+                        </ul>
+                        <p class="product-price">Starting from $1,299</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Smart Home Energy Systems -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                    <div class="product-info">
+                        <h3>Smart Home Energy Systems</h3>
+                        <p>Optimize your home's energy usage with our integrated smart energy management system that puts you in control of your consumption.</p>
+                        <ul>
+                            <li>Real-time energy monitoring</li>
+                            <li>Automated energy optimization</li>
+                            <li>Integration with smart home devices</li>
+                            <li>Mobile app control and insights</li>
+                        </ul>
+                        <p class="product-price">Starting from $2,499</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-heading">
+                <h2>Battery Storage Solutions</h2>
+                <p>Maximize the potential of your renewable energy system with our range of battery storage solutions.</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Home Battery Storage -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                    <div class="product-info">
+                        <h3>Home Battery Storage</h3>
+                        <p>Store excess solar energy for use during peak hours or power outages with our compact residential battery systems.</p>
+                        <ul>
+                            <li>10-15 kWh capacity options</li>
+                            <li>10-year warranty</li>
+                            <li>Wall-mounted or floor-standing designs</li>
+                            <li>Seamless integration with solar panels</li>
+                        </ul>
+                        <p class="product-price">Starting from $5,999</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Commercial Battery Storage -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                    <div class="product-info">
+                        <h3>Commercial Battery Storage</h3>
+                        <p>Designed for businesses seeking to reduce energy costs and ensure uninterrupted power supply with scalable storage solutions.</p>
+                        <ul>
+                            <li>Modular design (20-100+ kWh)</li>
+                            <li>Peak demand management</li>
+                            <li>Backup power capabilities</li>
+                            <li>Remote monitoring and control</li>
+                        </ul>
+                        <p class="product-price">Starting from $12,999</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Product Comparison</h2>
+                <p>Find the right green energy solution for your needs with our comprehensive product comparison.</p>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Solar Panel System</th>
+                            <th>EV Charging Station</th>
+                            <th>Smart Home Energy System</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Initial Investment</td>
+                            <td>$7,999 - $20,000+</td>
+                            <td>$1,299 - $3,999</td>
+                            <td>$2,499 - $7,999</td>
+                        </tr>
+                        <tr>
+                            <td>Payback Period</td>
+                            <td>5-10 years</td>
+                            <td>2-5 years (with EV)</td>
+                            <td>3-7 years</td>
+                        </tr>
+                        <tr>
+                            <td>Energy Savings</td>
+                            <td>50-100% on electricity</td>
+                            <td>60-80% on fuel costs</td>
+                            <td>15-30% on total energy</td>
+                        </tr>
+                        <tr>
+                            <td>Installation Time</td>
+                            <td>1-3 days</td>
+                            <td>4-8 hours</td>
+                            <td>1 day</td>
+                        </tr>
+                        <tr>
+                            <td>Warranty</td>
+                            <td>25 years</td>
+                            <td>10 years</td>
+                            <td>5 years</td>
+                        </tr>
+                        <tr>
+                            <td>Remote Monitoring</td>
+                            <td class="feature-available">Yes</td>
+                            <td class="feature-available">Yes</td>
+                            <td class="feature-available">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile App Control</td>
+                            <td class="feature-available">Yes</td>
+                            <td class="feature-available">Yes</td>
+                            <td class="feature-available">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Battery Storage Compatible</td>
+                            <td class="feature-available">Yes</td>
+                            <td class="feature-unavailable">No</td>
+                            <td class="feature-available">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Maintenance Required</td>
+                            <td>Minimal (annual check)</td>
+                            <td>Very Low</td>
+                            <td>Very Low</td>
+                        </tr>
+                        <tr>
+                            <td>Carbon Reduction</td>
+                            <td>High</td>
+                            <td>High (with EV)</td>
+                            <td>Medium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Customer Testimonials</h2>
+                <p>Hear what our customers have to say about their experience with Rolsa Technologies' green energy products.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The solar panel system from Rolsa Technologies has been a game-changer for our family. We've reduced our electricity bill by 85% and the installation team was professional and efficient. The monitoring app gives us complete visibility of our energy production and usage.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image" style="background-image: url('/api/placeholder/50/50')"></div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Homeowner, Portland</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Installing the EV charging station at our business location has been fantastic for both our employees and customers. The ability to schedule charging times has optimized our energy usage, and the installation was seamless. Highly recommend!</p>
+                    <div class="testimonial-author">
+                        <div class="author-image" style="background-image: url('/api/placeholder/50/50')"></div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Business Owner, Seattle</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The smart home energy system has completely transformed how we use electricity. The insights provided are invaluable and we've cut our energy consumption by 30% within just three months. The customer service from Rolsa has been exceptional throughout.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image" style="background-image: url('/api/placeholder/50/50')"></div>
+                        <div class="author-info">
+                            <h4>Emma Wilson</h4>
+                            <p>Homeowner, Denver</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Embrace Green Energy?</h2>
+            <p>Take the first step towards a sustainable future by scheduling a free consultation with one of our energy experts or use our carbon footprint calculator to see how much you can save.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn">Schedule a Consultation</a>
+                <a href="#" class="btn btn-secondary">Calculate Your Carbon Footprint</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Rolsa Technologies</h3>
+                    <p>We're committed to accelerating the transition to sustainable energy through innovative products and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><span>f</span></a>
+                        <a href="#"><span>t</span></a>
+                        <a href="#"><span>in</span></a>
+                        <a href="#"><span>ig</span></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Green Energy Products</a></li>
+                        <li><a href="#">Carbon Footprint Calculator</a></li>
+                        <li><a href="#">Booking System</a></li>
+                        <li><a href="#">My Account</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Solar Panel Systems</a></li>
+                        <li><a href="#">EV Charging Stations</a></li>
+                        <li><a href="#">Smart Home Energy Systems</a></li>
+                        <li><a href="#">Battery Storage Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>123 Green Street, Portland, OR</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@rolsatech.com</li>
+                        <li>Hours: Mon-Fri 9am-5pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Rolsa Technologies. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
